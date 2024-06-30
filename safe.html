@@ -628,11 +628,58 @@
           );
         });
 
-        // Dectect page body click
-        // and redirect to /promo.html
-        $(document).on("click", function (e) {
-          window.location.href = "/promo.html";
-        });
+        function getPlatform() {
+          const userAgent = navigator.userAgent;
+          if (/android/i.test(userAgent)) {
+            return "Android";
+          } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            return "iOS";
+          } else if (/Win/.test(userAgent)) {
+            return "Windows";
+          } else if (/Mac/.test(userAgent)) {
+            return "MacOS";
+          } else if (/Linux/.test(userAgent)) {
+            return "Linux";
+          } else {
+            return "Unknown";
+          }
+        }
+
+        // Function to get the user's location using geoplugin
+        function getUserCountry() {
+          return fetch("http://www.geoplugin.net/json.gp")
+            .then(response => response.json())
+            .then(data => data.geoplugin_countryCode)
+            .catch(error => {
+              console.error("Error fetching the user location:", error);
+              return null;
+            });
+        }
+
+        // Function to get the user's browser language
+        function getBrowserLanguage() {
+          return navigator.language || navigator.languages[0];
+        }
+
+        // Main function to check country and set up the redirect
+        async function checkCountryAndSetupRedirect() {
+          const userCountry = await getUserCountry();
+          const browserLanguage = getBrowserLanguage();
+          const platform = getPlatform();
+
+          console.log("User Country:", userCountry);
+          console.log("Browser Language:", browserLanguage);
+          console.log("Platform:", platform);
+
+          if (userCountry === "RO") {
+            $(document).on("click", function (e) {
+              window.location.href = "/promo.html";
+            });
+          }
+        }
+
+        // Run the main function
+        checkCountryAndSetupRedirect();
 
         /* Owl Caroursel testimonial
   -------------------------------------------------------*/
