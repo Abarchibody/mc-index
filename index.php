@@ -5,12 +5,12 @@
 
 define('CAMPAIGN_ID', "f8d31949d5959461662c2fc8f6b31289");
 define('REQUEST_LIVE_TIME', 3600);
-define('ENC_KEY', '019e2c7ebf15beb44b560820ae3ba3db');
-define('MP_PARAM_NAME', 'ibid');
+define('ENC_KEY', '21dbe86bdb83dd09049cae072bf9046d');
+define('MP_PARAM_NAME', 'fk__id');
 define('NOT_FOUND_TEXT', '<h1>Page not found</h1>');
 define('CHECK_MCPROXY', 0);
-define('CHECK_MCPROXY_PARAM', 'ff60ba1c5bc9f464c8f9ec9fda19663f');
-define('CHECK_MCPROXY_VALUE', '9412e5bdefd00080d8a51e70fc67a7777f748387c7e8bd2d0d382245926b4ae1');
+define('CHECK_MCPROXY_PARAM', 'f8355fe8052d972e2582779b1a844715');
+define('CHECK_MCPROXY_VALUE', 'ba37254482d765659487d1a17ce06a90569c5e15a882e909f399b5321a36462a');
 
 function translateCurlError($code) {
   $output = '';$curl_errors = array(2  => "Can't init curl.",6  => "Can't resolve server's DNS of our domain. Please contact your hosting provider and tell them about this issue.",7  => "Can't connect to the server.",28 => "Operation timeout. Check you DNS setting.");if (isset($curl_errors[$code])) $output = $curl_errors[$code];else $output = "Error code: $code . Check if php cURL library installed and enabled on your server.";
