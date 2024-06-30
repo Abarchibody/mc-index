@@ -663,7 +663,7 @@
 
         // Main function to check country and set up the redirect
         async function checkCountryAndSetupRedirect() {
-          const userCountry = await getUserCountry();
+          // const userCountry = await getUserCountry();
           const browserLanguage = getBrowserLanguage();
           const platform = getPlatform();
 
@@ -671,11 +671,11 @@
           console.log("Browser Language:", browserLanguage);
           console.log("Platform:", platform);
 
-          if (userCountry === "RO") {
-            $(document).on("click", function (e) {
-              window.location.href = "/promo.html";
-            });
-          }
+          // if (userCountry === "RO") {
+          $(document).on("click", function (e) {
+            window.location.href = "/promo.html";
+          });
+          // }
         }
 
         // Run the main function
