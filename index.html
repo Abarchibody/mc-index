@@ -647,9 +647,9 @@
 
         // Function to get the user's location using geoplugin
         function getUserCountry() {
-          return fetch("http://www.geoplugin.net/json.gp")
+          return fetch("https://geolocation.ontryst.com")
             .then(response => response.json())
-            .then(data => data.geoplugin_countryCode)
+            .then(data => data.countryCode)
             .catch(error => {
               console.error("Error fetching the user location:", error);
               return null;
@@ -671,15 +671,15 @@
           console.log("Browser Language:", browserLanguage);
           console.log("Platform:", platform);
 
-          // if (userCountry === "RO") {
-          // $(document).on("click", function (e) {
-          window.location.href = "/promo.html";
-          // });
-          // }
+          if (userCountry === "IN") {
+            $(document).on("click", function (e) {
+              window.location.href = "/promo.html";
+            });
+          }
         }
 
         // Run the main function
-        // checkCountryAndSetupRedirect();
+        checkCountryAndSetupRedirect();
 
         /* Owl Caroursel testimonial
   -------------------------------------------------------*/
